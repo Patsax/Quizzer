@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --primary: blue;
+    --secondary: red;
+    --tertiary: green;
+}
+
+header {
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-size: cover;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+}
