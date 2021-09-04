@@ -1,3 +1,4 @@
+/* general start */
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -9,6 +10,10 @@
     --right: green;
 }
 
+
+/* general end */
+
+/* header start */
 header {
     padding: 15px 25px;
     display: flex;
@@ -16,6 +21,7 @@ header {
     flex-wrap: wrap;
     background-size: cover;
 }
+/* header end */
 
 main {
     padding: 0;
@@ -37,31 +43,7 @@ main {
     padding: 10px;
 }
 
-/* quiz name and information start */
-#beginner {
-    display: grid;
-    text-align: center;
-    margin: auto;
-}
-
-.quiz-info {
-    padding-top: 0;
-    padding-bottom: 10px;
-}
-/* quiz name and information end */
-
-/* questions start */
-#answer-btns button {
-    height: 40px;
-}
-.btn-grid {
-    display: grid;
-    gap: 10px;
-    margin: 20px 0;
-    width: 40%;
-}
-/* questions end */
-
+/* button styling start */
 .btn {
     background-color: var(--primary);
     color: aliceblue;
@@ -88,6 +70,45 @@ main {
     font-weight: bold;
     padding: 10px 20px;
 }
+/* button styling end */
+
+/* quiz name and information start */
+.info-container {
+    display: grid;
+    text-align: center;
+    margin: auto;
+}
+
+.quiz-info {
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+/* quiz name and information end */
+
+/* questions start */
+#answer-btns button {
+    height: 40px;
+}
+.btn-grid {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+    width: 40%;
+}
+/* questions end */
+
+/* quiz complete start */
+/* .ending-container {
+    display: inline-grid;
+    align-items: center;
+} */
+/* quiz complete end */
+
+/* high score start */
+.score-list {
+    list-style: none;
+}
+/* high score end */
 
 .hide {
     display: none;

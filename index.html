@@ -20,8 +20,7 @@
     </header>
     <main>
         <div class="container">
-            
-            <div id="info-container" class="">
+            <div class="info-container">
                 <div class="intro">
                     <h1>Coding Quiz</h1>
                 </div>
@@ -33,43 +32,49 @@
                 </div>
             </div>
 
-            <div id="question-container" class="">
+            <div class="question-container hide">
                 <div id="question">
-                    <h2>Question</h2>
+                    <h2></h2>
                 </div>
                 <div id="answer-btns" class="btn-grid">
-                    <button class="btn">Answer 1</button>
-                    <button class="btn">Answer 2</button>
-                    <button class="btn">Answer 3</button>
-                    <button class="btn">Answer 4</button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
                 </div>
             </div>
 
-            <div id="ending-container" class="">
+            <div class="ending-container hide">
                 <div>
                     <h2>All Done!</h2>
                 </div>
                 <div>
-                    <p>Your final score is ____.</p>
+                    <p></p>
                 </div>
                 <div>
-                    <p>Enter initials:<span><input type="text"></span><span><button class="btn">Submit</button></span></p>
+                    <p>Enter initials:
+                        <span><input type="text"></span>
+                        <span><button class="btn">Submit</button></span>
+                    </p>
                 </div>
             </div>
 
-            <div id="high-score-container" class="">
+            <div class="high-score-container hide">
                 <div>
                     <h2>High Scores</h2>
                 </div>
                 <div>
-                    <textarea name="score-display" id="scores" cols="1" rows="1"></textarea>
+                    <ul class="score-list">
+                        <li>1.</li>
+                        <li>2.</li>
+                        <li>3.</li>
+                    </ul>
                 </div>
                 <div>
                     <button class="btn">Go Back</button>
                     <button class="btn">Clear High Scores</button>
                 </div>
             </div>
-
 
         </div>
 
