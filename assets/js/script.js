@@ -3,12 +3,13 @@ var startQuiz = document.querySelector("#start-btn");
 var info = document.querySelector(".info-container");
 var displayHighScore = document.querySelector("#high");
 var highScores = document.querySelector(".high-score-container");
+var quizQuestion = document.querySelector("#question");
 var questionContainer = document.querySelector(".question-container");
 var timing = document.querySelector(".timer");
 var ending = document.querySelector(".ending-container");
 var choices = document.querySelector("#answer-btn");
+var initials = document.querySelector("#initials")
 var clearHighScore = document.querySelector("#clear");
-var goBack = document.querySelector("#go-back");
 var timer
 var questions = [
     {
@@ -61,5 +62,73 @@ function startTimer() {
         renderEnding();
     }
 };
+
+function renderQuestion() {
+    if (questionTracker >= questions.length) {
+        renderEnding();
+        return;
+    }
+    var currentQuestion = questions [questionTracker];
+    quizQuestion.textContent = currentQuestion.question
+    for (var i = 0; i < currentQuestion.answers.length; i++) {
+        var answers = currentQuestion.answers[i];
+        var button = document.createElement("button");
+        button.textContent = answers;
+        button.className = "questionAnswer button-grid btn";
+        questionContainer.append(button);
+        if (answers === currentQuestion.correctAnswer) {
+            button.addEventListener("click", correctAnswer)
+        } else {
+            button.addEventListener("click", incorrectAnswer)
+        }
+    }
+};
+
+function removeButtons() {
+    var buttons = document.getElementsByClassName("questionAnswer");
+    while (buttons.length > 0) {
+        buttons[0].remove()
+    }
+};
+
+function loadNextQuestion() {
+    questionTracker++;
+    removeButtons();
+    renderQuestion();
+};
+
+function correctAnswer() {
+    loadNextQuestion();
+}
+
+function incorrectAnswer() {
+    timerCount = timerCount - 5;
+    timing.textContent = timerCount;
+    loadNextQuestion();
+};
+
+function renderEnding() {
+    var score = timerCount;
+    ending.textContent = score;
+    questionContainer.setAttribute("class", "hide");
+    timing.setAttribute("class", "hide");
+    clearInterval(timer);
+    ending.removeAttribute("class");
+};
+
+function saveHighScores(event) {
+    event.preventDefault();
+
+    var scoreHistory = JSON.parse(localStorage.getItem("score")) || [];
+    var currentScore = {
+        name: initials.value,
+        score: ending.textContent
+    }
+
+    scoreHistory.push(currentScore);
+    localStorage.setItem("score", JSON.stringify(scoreHistory));
+    ending.setAttribute("class", "hide");
+    info.removeAttribute("class");
+}
 
 startQuiz.addEventListener('click', startGame);
